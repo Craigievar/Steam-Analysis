@@ -1,12 +1,21 @@
 A series of scripts that
+ - defines a caller object for calling the steam api in a few ways
+ - can pull semi-random public users with basic info about them from steam
+ - updates info on those users and their games
 
-(initial run)
-	pulls a large (just under 50k) sample of semi-random players from Steam who
+Outcomes:
+ - sqlite3 database
+ 	- user list
+	- user-game level daily table
+ - log of pull attempts and finishes
+
+initial run
+	pulls a large sample of semi-random players from Steam who
 		have public profiles
 		logged into steam in the two weeks before the initial pull
-
-(scheduled runs)
-	pulls player*game level data on total time played on a 12 hour basis (steam limit = 100k, hence < 50k sample)
+		
+scheduled run
+	pulls player*game level data on total time played, given a sqlite3 database with a list of players
 	this can provide
 		general clustering information
 		churn information on a per-game level (for games with decent sample size)
