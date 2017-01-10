@@ -1,5 +1,5 @@
 -- command prompt
-sqlite3 ../../../SteamAnalysis.db
+sqlite3 SteamAnalysis.db
 
 -- setup commands
 -- sqlite ints are huge...
@@ -10,21 +10,21 @@ create table users (
 	,created integer
 );
 create table user_games (
-	user_id integer 
+	user_id integer
 	,game_id integer
-	,inserted numeric
+	,inserted text
 	,time_played integer
 );
 
 --delete duplicates
-delete from users 
-where user_id in 
+delete from users
+where user_id in
 	(
-		select 
+		select
 			user_id
-		from 
+		from
 		(
-			select 
+			select
 				user_id
 				,count(*) as ct
 			from users
@@ -34,8 +34,10 @@ where user_id in
 	)
 ;
 
+
+
 --export copy of userlist (just in case)
-.headers on 
+.headers on
 .mode csv
 .output userlist.csv
 select * from users;
