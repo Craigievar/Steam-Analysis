@@ -61,8 +61,6 @@ class caller:
             except:
                 traceback.print_exc()
                 #print("Error updating " + str(userId))
-            if ct%5000 == 0:
-                    print(ct)
 
 
     def getUsers(self, userIds):
