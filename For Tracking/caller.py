@@ -37,11 +37,11 @@ class caller:
         with self.conn:
             cur = self.conn.cursor()
             if int(game['playtime_forever']) > 0:
-			    cur.execute("INSERT INTO user_games VALUES("+\
-			        str(userId)+","+\
-			        str(game['appid'])+","+\
-			        "'" + str(datetime.fromtimestamp(time.time())) + "',"+\
-			        str(game['playtime_forever'])+")")
+	            cur.execute("INSERT INTO user_games VALUES("+\
+		            str(userId)+","+\
+		            str(game['appid'])+","+\
+		            "'" + str(datetime.fromtimestamp(time.time())) + "',"+\
+		            str(game['playtime_forever'])+")")
 
 
     def getGames(self):
