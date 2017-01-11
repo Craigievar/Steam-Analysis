@@ -8,7 +8,7 @@ import pprint
 class caller:
     def __init__(self, key, dbName):
         self.key = key
-        self.conn = sqlite3.connect('/home/csexauer/t2.db')
+        self.conn = sqlite3.connect(dbName)
 
     def getResp(self, userId, domain, method, version):
 
@@ -58,7 +58,7 @@ class caller:
                 if('games' in gameListParsed['response']):
                     timeIns = str(datetime.fromtimestamp(time.time()))
                     gameList = gameListParsed['response']['games']
-                    insertList = [[userId, g['appid'], timeIns, g['playtime_forever']] 
+                    insertList = [[userId, g['appid'], timeIns, g['playtime_forever']]
                                     for g in gameList if int(g['playtime_forever']) > 0 ]
                     self.insertArray(insertList)
                     #pprint.pprint(insertList)
