@@ -79,7 +79,7 @@ class caller:
 
     def getGames(self):
         cursor = self.conn.cursor()
-        idList = cursor.execute('SELECT distinct user_id from users order by user_id').fetchall()
+        idList = cursor.execute('SELECT distinct user_id from users order by user_id limit 80000').fetchall()
         ids = [entry[0] for entry in idList]
         fail_ids = self.getGameList(ids, True)
         time.sleep(35*60)
